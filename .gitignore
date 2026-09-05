@@ -1,0 +1,9 @@
+# Auto-cloned by plugins.zsh on first launch — not versioned
+plugins/
+
+# Machine-local overrides
+local.zsh
+
+# zsh compiled files
+*.zwc
+*.zcompdump*
