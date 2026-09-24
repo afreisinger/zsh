@@ -47,3 +47,4 @@ alias rg='rg --smart-case'
 # --- misc ---
 alias vim='nvim'
 alias v='nvim'
+alias mux='tmuxinator'
