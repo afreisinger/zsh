@@ -1,11 +1,21 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Prompt: directory / os / git a la izquierda, lenguajes + tiempo a la derecha
+# Prompt: usuario / directorio / git a la izquierda, lenguajes + tiempo a la derecha
 format = """\
-($directory$os$git_branch$git_status)\
+$username\
+$directory\
+$git_branch\
+$git_status\
 $fill\
-$nodejs$rust$golang$php$python$cmd_duration$time\
-$line_break$character"""
+$nodejs\
+$rust\
+$golang\
+$php\
+$python\
+$cmd_duration\
+$time\
+$line_break\
+$character"""
 
 add_newline = true
 
