@@ -48,3 +48,24 @@ alias rg='rg --smart-case'
 alias vim='nvim'
 alias v='nvim'
 alias mux='tmuxinator'
+
+# --- docker ---
+# Limpieza segura: containers/imagenes/volumenes/cache sin uso.
+# OJO: -a borra imagenes sin container y --volumes borra volumenes
+# huerfanos (incluye el 'vscode' de dev containers). El codigo en el
+# host no se toca; si, el estado dentro de Docker.
+docker-clean() {
+  command -v docker >/dev/null 2>&1 || { echo "docker no instalado"; return 1; }
+  echo "== antes =="; docker system df
+  docker container prune -f
+  docker image prune -af
+  docker volume prune -af
+  docker builder prune -af
+  echo "== despues =="; docker system df
+  echo
+  echo "Nota macOS: Docker.raw no se achica con prune."
+  echo "Para devolver espacio al host: Docker Desktop > Troubleshoot > Clean/Purge data"
+}
+
+# Estado rapido del consumo de Docker
+alias ddf='docker system df'
